@@ -14,99 +14,66 @@ class BinarySearchTree(LinkedBinaryTree):
     #     self.val = val
     #     super().__init__(val)
 
+
     def insert(self, val):
-        if not self.val:
-            self.val = val
+        if not self._Node._element:
+            self._Node._element = val
             return
 
-        if self.val == val:
+        if self._Node._element == val:
             return
 
-        if val < self.val:
-            if self.left:
-                self.left.insert(val)
+        if val < self._Node._element:
+            if self._Node._left:
+                self._Node._left.insert(val)
                 return
-            self.left = BinarySearchTree(val)
+            self._Node._left = BinarySearchTree(val)
             return
 
-        if self.right:
-            self.right.insert(val)
+        if self._Node._right:
+            self._Node._right.insert(val)
             return
-        self.right = BinarySearchTree(val)
-
-    def get_min(self):
-        current = self
-        while current.left is not None:
-            current = current.left
-        return current.val
-
-    def get_max(self):
-        current = self
-        while current.right is not None:
-            current = current.right
-        return current.val
-
-    def delete(self, val):
-        if self == None:
-            return self
-        if val < self.val:
-            if self.left:
-                self.left = self.left.delete(val)
-            return self
-        if val > self.val:
-            if self.right:
-                self.right = self.right.delete(val)
-            return self
-        if self.right == None:
-            return self.left
-        if self.left == None:
-            return self.right
-        min_larger_node = self.right
-        while min_larger_node.left:
-            min_larger_node = min_larger_node.left
-        self.val = min_larger_node.val
-        self.right = self.right.delete(min_larger_node.val)
-        return self
+        self._Node._right = BinarySearchTree(val)
 
     def exists(self, val):
-        if val == self.val:
+        if val == self._Node._element:
             return True
 
-        if val < self.val:
-            if self.left == None:
+        if val < self._Node._element:
+            if self._Node._left == None:
                 return False
-            return self.left.exists(val)
+            return self._Node._left.exists(val)
 
-        if self.right == None:
+        if self._Node._right == None:
             return False
-        return self.right.exists(val)
+        return self._Node._right.exists(val)
 
-    def preorder(self, vals):
-        if self.val is not None:
-            vals.append(self.val)
-        if self.left is not None:
-            self.left.preorder(vals)
-        if self.right is not None:
-            self.right.preorder(vals)
-        return vals
-
-    def inorder(self, vals):
-        if self.left is not None:
-            self.left.inorder(vals)
-        if self.val is not None:
-            vals.append(self.val)
-        if self.right is not None:
-            self.right.inorder(vals)
-        return vals
-
-    def postorder(self, vals):
-        if self.left is not None:
-            self.left.postorder(vals)
-        if self.right is not None:
-            self.right.postorder(vals)
-        if self.val is not None:
-            vals.append(self.val)
-        return vals
+    # def preorder(self, vals):
+    #     if self.val is not None:
+    #         vals.append(self.val)
+    #     if self.left is not None:
+    #         self.left.preorder(vals)
+    #     if self._Node._right is not None:
+    #         self._Node._right.preorder(vals)
+    #     return vals
+    #
+    # def inorder(self, vals):
+    #     if self.left is not None:
+    #         self.left.inorder(vals)
+    #     if self.val is not None:
+    #         vals.append(self.val)
+    #     if self.right is not None:
+    #         self.right.inorder(vals)
+    #     return vals
+    #
+    # def postorder(self, vals):
+    #     if self.left is not None:
+    #         self.left.postorder(vals)
+    #     if self.right is not None:
+    #         self.right.postorder(vals)
+    #     if self.val is not None:
+    #         vals.append(self.val)
+    #     return vals
 
 
     '''
@@ -134,23 +101,24 @@ class BinarySearchTree(LinkedBinaryTree):
     def get_median_node(self, first_position, last_position):
         if first_position != last_position: # Check if it`s NOT the last element in the array
             median = round((first_position + last_position + 1) / 2)
-            return median # return the position in the ordered array
+            return median # return the index in the ordered array
 
     def load_bst(self, first_position, last_position):
-        for i in self.get_median_node(0, len(self._our_ordered_array)):
-            min_i = self._our_ordered_array[0]
-            max_i = len(self._our_ordered_array)-1
-        first_position = min_i
-        last_position = max_i
-        first_and_last = min_i + max_i
 
-        if self._
-        median_node = self.get_median_node(0, len(self._our_ordered_array))
-        self._Node._element = self.insert(self._our_ordered_array[median_node])
+        m = self.get_median_node(first_position, last_position)
+        self._Node._element = self.insert(self._our_ordered_array[m])
 
-        else
-            median_node = self.get_median_node(0, len(self._our_ordered_array))
-            self.get_median_node(0,len(self._our_ordered_array))
+        
+        left = [: m-1]
+        right = [m+1 : ]
+
+        if first_position < last_position:
+            self._Node._left = self.load_bst(first_position, m-1)
+            return
+            self._Node._right = self.load_bst(m + 1,last_position)
+            return
+
+
 
         # Get the median node
         #insert the median node in a new bst_node

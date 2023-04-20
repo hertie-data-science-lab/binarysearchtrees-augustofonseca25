@@ -21,7 +21,7 @@ lbt = BinarySearchTree()
 bst_test = BinarySearchTree()
 
 #Load BST with elements from previous binarytree
-#bst_test.load_bst()
+bst_test.load_bst(0, len(self._our_ordered_array))
 
 lbt._add_root(5)
 lbt._add_left(lbt.root(), 4)
