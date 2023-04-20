@@ -1,3 +1,15 @@
+# Group Members
+Team members:
+
+- Augusto Fonseca - 225984@students.hertie-school.org
+
+- Danial Riaz - 201678@students.hertie-school.org
+
+- Fernando Corral - 222836@students.hertie-school.org
+
+- Rodrigo Dornelles - 228446@students.hertie-school.org
+
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/L0P4fZaj)
 # Assignment:
 
