@@ -21,19 +21,25 @@ lbt = BinarySearchTree()
 bst_test = BinarySearchTree()
 
 #Load BST with elements from previous binarytree
-bst_test.load_bst(0, len(self._our_ordered_array))
+#bst_test.load_bst(0, len(self._our_ordered_array))
 
-lbt._add_root(5)
-lbt._add_left(lbt.root(), 4)
-lbt._add_right(lbt.root(), 3)
+lbt._add_root(15)
+lbt._add_left(lbt.root(), 14)
+lbt._add_right(lbt.root(), 13)
 
 l = lbt.left(lbt.root())
 r = lbt.right(lbt.root())
 
-lbt._add_left(l, 7)
-lbt._add_right(l, 6)
-lbt._add_left(r, 1)
-lbt._add_right(r, 2)
+lbt._add_left(l, 17)
+lbt._add_right(l, 16)
+lbt._add_left(r, 11)
+lbt._add_right(r, 12)
+
+print("The preoder is:", list(lbt.preorder_print(lbt.root(),"")))
+print("the ordered list is:", lbt.convert_BTnodes_list())
+lbt.load_bst(0,len(lbt._our_ordered_array))
+
+print(lbt.root())
 
 #print(lbt._make_position(lbt._root))
 
@@ -54,8 +60,7 @@ Where:
 # tree_string = lbt.preorder_print(lbt.root(),"")
 # array_number = [char for char in tree_string if char.isdigit()]  # Extract only the digit(s)
 # list_numbers = list(map(int, sorted(array_number, reverse = False)))
-print("The preoder is:", list(lbt.preorder_print(lbt.root(),"")))
-print("the ordered list is:", lbt.convert_BTnodes_list())
+
 #print(lbt.get_median_node(1,3))
 
 
